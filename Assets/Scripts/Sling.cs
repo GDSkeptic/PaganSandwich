@@ -42,7 +42,7 @@ public class Sling : MonoBehaviour
                 SlingShotParent.obj = null;
             }
         }
-        if (SlingShotParent.obj != null)
+        if (SlingShotParent.obj != null && IsIngredient(SlingShotParent.obj))
         {
             float distance_to_screen = Camera.main.WorldToScreenPoint(SlingShotParent.obj.transform.position).z;
             Vector3 pos_move = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance_to_screen));

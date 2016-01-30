@@ -10,6 +10,7 @@ TagManager:
   - Steak
   - Sling
   - Stopper
+  - Container
   layers:
   - Default
   - TransparentFX

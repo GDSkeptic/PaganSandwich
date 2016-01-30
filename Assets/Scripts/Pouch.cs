@@ -29,11 +29,10 @@ public class Pouch : MonoBehaviour
         {
             if (SlingShotParent.obj && SlingShotParent.obj.tag == "Sling")
             {
-                SlingShotParent.obj.GetComponent<Pouch>().Reset();
                 SlingShotParent.obj = null;
             }
         }
-        if (SlingShotParent.obj != null)
+        if (SlingShotParent.obj != null && SlingShotParent.obj.tag == "Sling")
         {
             float distance_to_screen = Camera.main.WorldToScreenPoint(SlingShotParent.obj.transform.position).z;
             Vector3 pos_move = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance_to_screen));
