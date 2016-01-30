@@ -36,7 +36,7 @@ public class Sling : MonoBehaviour
         }
         else if (Input.GetButtonUp("Fire1"))
         {
-            if (SlingShotParent.obj)
+            if (SlingShotParent.obj && IsIngredient(SlingShotParent.obj))
             {
                 SlingShotParent.obj.GetComponent<Ingredient>().Reset();
                 SlingShotParent.obj = null;

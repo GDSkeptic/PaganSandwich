@@ -1424,7 +1424,7 @@ GameObject:
   - 114: {fileID: 2084036275}
   m_Layer: 9
   m_Name: Pouch
-  m_TagString: Untagged
+  m_TagString: Sling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
