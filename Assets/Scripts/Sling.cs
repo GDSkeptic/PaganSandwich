@@ -6,10 +6,12 @@ public class Sling : MonoBehaviour
 
     // Use this for initialization
     public Ray ray;
+    public bool ingredientParent;//if there is a parent already created
+    public GameObject parentIngredient;//parent ingredient if any
     float upValue = 1.0f; //offset y position of the object when dragged on the slingshot
     void Start()
     {
-
+      ingredientParent=false;
     }
 
     // Update is called once per frame
@@ -47,11 +49,22 @@ public class Sling : MonoBehaviour
         SlingShotParent.obj = null;
        // Destroy(other.gameObject);
         //Debug.Log("ok");
-       other.gameObject.transform.position = transform.position;
-       Vector3 vec = transform.position;
-       vec.y += upValue;
-       upValue+=0.2f;
-       other.gameObject.transform.position = vec;
-       other.gameObject.transform.parent = transform;
+       //other.gameObject.transform.position = transform.position;
+        Vector3 vec = transform.position;
+        vec.y += upValue;
+        upValue+=0.2f;
+       //other.gameObject.transform.position = vec;
+       //other.gameObject.transform.parent = transform;
+        if (ingredientParent == false)
+        {
+            parentIngredient = (GameObject)Instantiate(other.gameObject, vec, Quaternion.identity);
+            ingredientParent = true;
+        }
+        else
+        {
+            GameObject temp = (GameObject)Instantiate(other.gameObject, vec, Quaternion.identity);
+            temp.transform.parent = parentIngredient.transform;
+        }
+        other.gameObject.GetComponent<Ingredient>().Reset();
     }
 }
