@@ -20,6 +20,7 @@ public class Ingredient : MonoBehaviour
     public void Reset()
     {
         transform.position = originalPosition;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
   
  
