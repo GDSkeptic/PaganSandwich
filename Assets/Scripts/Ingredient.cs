@@ -5,6 +5,7 @@ public class Ingredient : MonoBehaviour
 {
     Vector3 originalPosition;//original Position
     public float height;
+    public bool SpawnerBox = true;
     // Use this for initialization
     void Start()
     {
