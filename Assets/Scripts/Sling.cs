@@ -7,12 +7,12 @@ public class Sling : MonoBehaviour
     // Use this for initialization
     public Ray ray;
     public bool ingredientParent;//if there is a parent already created
-    public GameObject parentIngredient;//parent ingredient if any
+    public GameObject container;//parent ingredient if any
     [SerializeField]
     float upValue = 1.0f; //offset y position of the object when dragged on the slingshot
     void Start()
     {
-      ingredientParent=false;
+        ingredientParent = false;
     }
 
     bool IsIngredient(GameObject _obj)
@@ -28,9 +28,9 @@ public class Sling : MonoBehaviour
             if (SlingShotParent.obj == null)//if there is no obj already selected
             {
                 SlingShotParent.obj = MousePick.GetObject(out ray);
-                if (SlingShotParent.obj !=null && !IsIngredient(SlingShotParent.obj) )
+                if (SlingShotParent.obj != null && !IsIngredient(SlingShotParent.obj))
                 {
-                   SlingShotParent.obj = null;
+                    SlingShotParent.obj = null;
                 }
             }
         }
@@ -63,19 +63,12 @@ public class Sling : MonoBehaviour
             upValue += 0.2f;
             //other.gameObject.transform.position = vec;
             //other.gameObject.transform.parent = transform;
-            if (ingredientParent == false)
-            {
-                parentIngredient = (GameObject)Instantiate(other.gameObject, vec, Quaternion.identity);
-                ingredientParent = true;
-                parentIngredient.GetComponent<Ingredient>().SpawnerBox = false;
-            }
-            else
-            {
-                GameObject temp = (GameObject)Instantiate(other.gameObject, vec, Quaternion.identity);
-                temp.transform.parent = parentIngredient.transform;
-                temp.GetComponent<Ingredient>().SpawnerBox = false;
-            }
+
             other.gameObject.GetComponent<Ingredient>().Reset();
+            GameObject temp = (GameObject)Instantiate(other.gameObject, vec, Quaternion.identity);
+            temp.GetComponent<Ingredient>().SpawnerBox = false;
+            temp.transform.parent = container.transform;
+            container.AddComponent<FixedJoint>().connectedBody = temp.GetComponent<Rigidbody>();
         }
     }
 }
