@@ -9,7 +9,7 @@ public class Sling : MonoBehaviour
     public bool ingredientParent;//if there is a parent already created
     public GameObject container;//parent ingredient if any
     [SerializeField]
-    float upValue = 1.0f; //offset y position of the object when dragged on the slingshot
+    float upValue = 0.0f; //offset y position of the object when dragged on the slingshot
     void Start()
     {
         ingredientParent = false;
