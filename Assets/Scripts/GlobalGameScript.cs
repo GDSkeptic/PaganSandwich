@@ -14,7 +14,7 @@ public class GlobalGameScript : MonoBehaviour {
 	
     void FixedUpdate()
     {
-        Spawn_Bread_Timer += Time.deltaTime * (Game_Speed + (Game_Speed * .5f)) ;
+        Spawn_Bread_Timer += Time.deltaTime * (Game_Speed + (Game_Speed * .75f)) ;
     }
 
 	// Update is called once per frame
