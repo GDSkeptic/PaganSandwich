@@ -8,10 +8,16 @@ public class Sling : MonoBehaviour
     public Ray ray;
     public bool ingredientParent;//if there is a parent already created
     public GameObject parentIngredient;//parent ingredient if any
+    [SerializeField]
     float upValue = 1.0f; //offset y position of the object when dragged on the slingshot
     void Start()
     {
       ingredientParent=false;
+    }
+
+    bool IsIngredient(GameObject _obj)
+    {
+        return _obj.tag == "Tomato" || _obj.tag == "Chicken" || _obj.tag == "Lettuce" || _obj.tag == "Steak";
     }
 
     // Update is called once per frame
@@ -22,7 +28,7 @@ public class Sling : MonoBehaviour
             if (SlingShotParent.obj == null)//if there is no obj already selected
             {
                 SlingShotParent.obj = MousePick.GetObject(out ray);
-                if (SlingShotParent.obj !=null && SlingShotParent.obj.tag == "Sling" )
+                if (SlingShotParent.obj !=null && !IsIngredient(SlingShotParent.obj) )
                 {
                    SlingShotParent.obj = null;
                 }
@@ -44,27 +50,32 @@ public class Sling : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        SlingShotParent.obj = null;
-       // Destroy(other.gameObject);
-        //Debug.Log("ok");
-       //other.gameObject.transform.position = transform.position;
-        Vector3 vec = transform.position;
-        vec.y += upValue;
-        upValue+=0.2f;
-       //other.gameObject.transform.position = vec;
-       //other.gameObject.transform.parent = transform;
-        if (ingredientParent == false)
+        if (IsIngredient(other.gameObject) && other.gameObject.GetComponent<Ingredient>().SpawnerBox)
         {
-            parentIngredient = (GameObject)Instantiate(other.gameObject, vec, Quaternion.identity);
-            ingredientParent = true;
+            SlingShotParent.obj = null;
+            // Destroy(other.gameObject);
+            //Debug.Log("ok");
+            //other.gameObject.transform.position = transform.position;
+            Vector3 vec = transform.position;
+            vec.y += upValue;
+            upValue += 0.2f;
+            //other.gameObject.transform.position = vec;
+            //other.gameObject.transform.parent = transform;
+            if (ingredientParent == false)
+            {
+                parentIngredient = (GameObject)Instantiate(other.gameObject, vec, Quaternion.identity);
+                ingredientParent = true;
+                parentIngredient.GetComponent<Ingredient>().SpawnerBox = false;
+            }
+            else
+            {
+                GameObject temp = (GameObject)Instantiate(other.gameObject, vec, Quaternion.identity);
+                temp.transform.parent = parentIngredient.transform;
+                temp.GetComponent<Ingredient>().SpawnerBox = false;
+            }
+            other.gameObject.GetComponent<Ingredient>().Reset();
         }
-        else
-        {
-            GameObject temp = (GameObject)Instantiate(other.gameObject, vec, Quaternion.identity);
-            temp.transform.parent = parentIngredient.transform;
-        }
-        other.gameObject.GetComponent<Ingredient>().Reset();
     }
 }
