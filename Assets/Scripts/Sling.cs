@@ -6,6 +6,7 @@ public class Sling : MonoBehaviour
 
     // Use this for initialization
     public Ray ray;
+    float upValue = 1.0f; //offset y position of the object when dragged on the slingshot
     void Start()
     {
 
@@ -19,7 +20,7 @@ public class Sling : MonoBehaviour
             if (SlingShotParent.obj == null)//if there is no obj already selected
             {
                 SlingShotParent.obj = MousePick.GetObject(out ray);
-                if (SlingShotParent.obj.tag == "Sling" && SlingShotParent.obj.tag!=null)
+                if (SlingShotParent.obj !=null && SlingShotParent.obj.tag == "Sling" )
                 {
                    SlingShotParent.obj = null;
                 }
@@ -44,12 +45,13 @@ public class Sling : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         SlingShotParent.obj = null;
-        Destroy(other.gameObject);
-        Debug.Log("ok");
-        other.gameObject.transform.position = transform.position;
-        Vector3 vec = transform.position;
-        vec.y += 2.0f;
-        other.gameObject.transform.position = vec;
-        other.gameObject.transform.parent = transform;
+       // Destroy(other.gameObject);
+        //Debug.Log("ok");
+       other.gameObject.transform.position = transform.position;
+       Vector3 vec = transform.position;
+       vec.y += upValue;
+       upValue+=0.2f;
+       other.gameObject.transform.position = vec;
+       other.gameObject.transform.parent = transform;
     }
 }

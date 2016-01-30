@@ -21,15 +21,5 @@ public class Ingredient : MonoBehaviour
         transform.position = originalPosition;
     }
   
-    void OnCollisionEnter(Collision other)
-    {
-        SlingShotParent.obj = null;
-        // Destroy(other);
-        Debug.Log("ok");
-        transform.position = other.gameObject.transform.position;
-        Vector3 vec = other.gameObject.transform.position;
-        vec.y += 2.0f;
-        gameObject.transform.position = vec;
-        gameObject.transform.parent = other.gameObject.transform;
-    }
+ 
 }
