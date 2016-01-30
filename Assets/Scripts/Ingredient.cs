@@ -3,12 +3,14 @@ using System.Collections;
 
 public class Ingredient : MonoBehaviour
 {
-    public GameObject sling;
+    Ray ray;
+    Transform originalPosition;//original Position
+    Vector3 offset;
 
     // Use this for initialization
     void Start()
     {
-
+        originalPosition = transform;
     }
 
     // Update is called once per frame
@@ -16,17 +18,27 @@ public class Ingredient : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            GameObject g = MousePick.GetObject();
-            if (g != null)
+            if (SlingShotParent.obj != null)//if there is no obj already selected
             {
-                if (g.tag == gameObject.tag)
+                SlingShotParent.obj = MousePick.GetObject(out ray);
+                if (SlingShotParent.obj != null)//if there is actually an obj
                 {
-                    // gameObject.transform.position = sling.transform.position;
-                    Vector3 vec = sling.transform.position;
-                    vec.y += 2.0f;
-                    gameObject.transform.position = vec;
-                    gameObject.transform.parent = sling.transform;
+                    if (SlingShotParent.obj.tag == gameObject.tag)
+                    {
+                        // gameObject.transform.position = sling.transform.position;
+                        //Vector3 vec = sling.transform.position;
+                        //vec.y += 2.0f;
+                        //gameObject.transform.position = vec;
+                        //gameObject.transform.parent = sling.transform
+                        offset = SlingShotParent.obj.transform.position - ray.origin;
+
+
+                    }
                 }
+            }
+            else if(SlingShotParent.obj.tag == tag)
+            {
+                transform.position = new Vector3(ray.origin.x + offset.x, transform.position.y, ray.origin.z + offset.z);
             }
         }
     }

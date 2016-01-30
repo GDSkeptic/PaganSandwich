@@ -1,21 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SlingShotParent : MonoBehaviour {
+public static class SlingShotParent {
 
 	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    void OnCollisionEnter(Collision col)
-    {
-        col.gameObject.transform.position = gameObject.transform.position;
-        col.gameObject.transform.parent = gameObject.transform;
-    }
+    public static GameObject obj; //if the mouse has a object selected
 }
