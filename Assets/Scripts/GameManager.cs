@@ -5,10 +5,36 @@ public class GameManager : MonoBehaviour {
 
     public UIManager UI;
 
+    AudioSource[] Music;
+
+    int CurrentMusicIndex = 1;
+
+    void SwitchClip(int _index)
+    {
+        if (_index >= 0 && _index < Music.Length)
+        {
+            Music[CurrentMusicIndex].volume = 0;
+            CurrentMusicIndex = _index;
+            Music[CurrentMusicIndex].volume = 1;
+        }
+    }
+
+    public void AdvanceMusic()
+    {
+        SwitchClip(CurrentMusicIndex + 1);
+    }
+
     void Start()
     {
+        Music = GetComponents<AudioSource>();
         if (ScoreUpdate.ShowMenuOnStartup)
             EnterMainMenu();
+        else
+        {
+            CurrentMusicIndex = 1;
+            Music[0].volume = 0;
+            Music[CurrentMusicIndex].volume = 1;
+        }
     }
 
     public void StartNewGame()
@@ -16,6 +42,8 @@ public class GameManager : MonoBehaviour {
         ExitMainMenu();
         ScoreUpdate.ShowMenuOnStartup = false;
         SceneManager.LoadScene("Main");
+        Music[0].volume = 0;
+        SwitchClip(1);
     }
 
     public void Quit()
@@ -27,12 +55,16 @@ public class GameManager : MonoBehaviour {
     {
         UI.HideMenu(false);
         Time.timeScale = 0;
+        Music[CurrentMusicIndex].volume = 0;
+        Music[0].volume = 1;
     }
 
     public void ExitMainMenu()
     {
         UI.HideMenu(true);
         Time.timeScale = 1;
+        Music[0].volume = 0;
+        Music[CurrentMusicIndex].volume = 1;
     }
 
     public void EnterHighScores()
