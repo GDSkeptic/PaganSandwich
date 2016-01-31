@@ -36,8 +36,8 @@ public class FurnaceCheck : MonoBehaviour {
             {
                 OnPunchSandwich();
                 //reseting the match streak to 0 and incrementing the number of misses.
-                GameObject.FindGameObjectWithTag("UICanvas").GetComponent<ScoreUpdate>().MatchStreak = 0;
-                GameObject.FindGameObjectWithTag("UICanvas").GetComponent<ScoreUpdate>().MissNum++;
+                ScoreUpdate.MatchStreak = 0;
+                ScoreUpdate.MissNum++;
             }
 
         }
@@ -50,8 +50,8 @@ public class FurnaceCheck : MonoBehaviour {
                 {
                     found = true;
                     // if the ingredients match the match streak is incremented and the score is updated.
-                    GameObject.FindGameObjectWithTag("UICanvas").GetComponent<ScoreUpdate>().MatchStreak++;
-                    GameObject.FindGameObjectWithTag("UICanvas").GetComponent<ScoreUpdate>().UpdateScore();
+                    ScoreUpdate.MatchStreak++;
+                    ScoreUpdate.UpdateScore();
 
                     bread.RequestedIngredients.RemoveAt(s);
                     break;
@@ -61,8 +61,8 @@ public class FurnaceCheck : MonoBehaviour {
             {
                 OnPunchSandwich();
                 //reseting the match streak to 0 and incrementing the number of misses.
-                GameObject.FindGameObjectWithTag("UICanvas").GetComponent<ScoreUpdate>().MatchStreak = 0;
-                GameObject.FindGameObjectWithTag("UICanvas").GetComponent<ScoreUpdate>().MissNum++;
+                ScoreUpdate.MatchStreak = 0;
+                ScoreUpdate.MissNum++;
                 break;
             }
 
