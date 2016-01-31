@@ -27,7 +27,7 @@ public class Bread : MonoBehaviour {
     void OnCollisionEnter(Collision _collision)
     {
         GameObject other = _collision.gameObject;
-        if(other.tag == "Tomato" || other.tag == "Lettuce" || other.tag == "Steak" || other.tag == "Chicken")
+        if(other.tag == "Tomato" || other.tag == "Cheese" || other.tag == "Steak" || other.tag == "Pikkle")
         {
             other.GetComponent<Rigidbody>().velocity = Vector3.zero;
             other.transform.rotation = Quaternion.Euler(0, 0, 0);
