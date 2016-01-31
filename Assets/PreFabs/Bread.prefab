@@ -45,6 +45,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 460958}
   - 54: {fileID: 5490486}
+  - 114: {fileID: 11425696}
   m_Layer: 0
   m_Name: Bread
   m_TagString: Untagged
@@ -197,6 +198,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 19.936838, y: 7.214659, z: 19.931862}
   m_Center: {x: -0.069293976, y: -3.6073391, z: 0.00000047683716}
+--- !u!114 &11425696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44ff0ad721ccc498168b6048e7a2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestedIngredients: []
+  BreadHeight: 1
+  TimeToLive: 30
+  CurrentSandwichHeight: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
