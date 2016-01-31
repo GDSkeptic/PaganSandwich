@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: fa4891ce62cc6477cba2040741ab5413
+timeCreated: 1454208888
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Convayor_belt 1
+    100002: //RootNode
+    100004: polySurface1
+    100006: polySurface2
+    100008: polySurface3
+    100010: polySurface4
+    100012: polySurface5
+    100014: polySurface6
+    100016: polySurface7
+    100018: polySurface8
+    100020: rotator2
+    100022: rotator5
+    100024: rotator6
+    100026: transform1
+    100028: transform2
+    100030: transform3
+    100032: transform4
+    100034: wheel_3
+    100036: wheel_6
+    100038: wheel_7
+    100040: Wheel_V10
+    100042: Wheel_V2
+    100044: Wheel_V4
+    100046: Wheel_V9
+    400000: Convayor_belt 1
+    400002: //RootNode
+    400004: polySurface1
+    400006: polySurface2
+    400008: polySurface3
+    400010: polySurface4
+    400012: polySurface5
+    400014: polySurface6
+    400016: polySurface7
+    400018: polySurface8
+    400020: rotator2
+    400022: rotator5
+    400024: rotator6
+    400026: transform1
+    400028: transform2
+    400030: transform3
+    400032: transform4
+    400034: wheel_3
+    400036: wheel_6
+    400038: wheel_7
+    400040: Wheel_V10
+    400042: Wheel_V2
+    400044: Wheel_V4
+    400046: Wheel_V9
+    2300000: Convayor_belt 1
+    2300002: polySurface1
+    2300004: polySurface2
+    2300006: polySurface3
+    2300008: polySurface4
+    2300010: polySurface5
+    2300012: polySurface6
+    2300014: polySurface7
+    2300016: polySurface8
+    2300018: rotator2
+    2300020: rotator5
+    2300022: rotator6
+    2300024: wheel_3
+    2300026: wheel_6
+    2300028: wheel_7
+    3300000: Convayor_belt 1
+    3300002: polySurface1
+    3300004: polySurface2
+    3300006: polySurface3
+    3300008: polySurface4
+    3300010: polySurface5
+    3300012: polySurface6
+    3300014: polySurface7
+    3300016: polySurface8
+    3300018: rotator2
+    3300020: rotator5
+    3300022: rotator6
+    3300024: wheel_3
+    3300026: wheel_6
+    3300028: wheel_7
+    4300000: polySurface5
+    4300002: polySurface6
+    4300004: polySurface7
+    4300006: polySurface8
+    4300008: wheel_3
+    4300010: rotator2
+    4300012: Convayor_belt
+    4300014: rotator5
+    4300016: wheel_6
+    4300018: rotator6
+    4300020: wheel_7
+    4300022: polySurface1
+    4300024: polySurface2
+    4300026: polySurface3
+    4300028: polySurface4
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
