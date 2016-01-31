@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         // input check
-        if(Input.GetKey("escape"))
+        if(Input.GetKeyDown("escape"))
         {
             if (MainMenu.gameObject.activeInHierarchy)
                 GM.ExitMainMenu();
