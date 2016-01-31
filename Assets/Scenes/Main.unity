@@ -439,8 +439,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d976686e59a3a448851c50a2243df43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Game_Speed: 1
+  GameTimer: 0
+  LevelTimes: []
+  LevelSpeeds: []
+  Game_Speed: 0.5
   Bread: {fileID: 171078, guid: 8ec39d7fc7bb7ed438b39eda4324656f, type: 2}
+  GM: {fileID: 492481963}
 --- !u!1001 &1737395372
 Prefab:
   m_ObjectHideFlags: 0
