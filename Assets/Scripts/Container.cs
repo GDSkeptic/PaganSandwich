@@ -22,14 +22,12 @@ public class Container : MonoBehaviour
     {
         if (other.gameObject.tag != "Bread" && shot)
         {
-            Debug.Log("DETACH");
-            Debug.Log(other.gameObject.tag);
             shot = false;
             int size = transform.childCount;
             List<GameObject> a = new List<GameObject>();
             for (int i = size - 1; i >= 0; i--)
             {
-                Destroy(transform.GetChild(i).gameObject, 10.0f);
+                Destroy(transform.GetChild(i).gameObject, 15.0f);
                 a.Add(transform.GetChild(i).gameObject);
                 transform.GetChild(i).gameObject.GetComponent<Rigidbody>().useGravity = true;
                 transform.GetChild(i).parent = null;
@@ -47,18 +45,14 @@ public class Container : MonoBehaviour
         }
         else if(other.gameObject.tag == "Bread" && shot)
         {
-            Debug.Log("ATTACH");
             shot = false;
-            Debug.Log(transform.childCount);
             for (int i = transform.childCount-1; i >=0; i--)
             {
-                //transform.GetChild(i).gameObject.GetComponent<Rigidbody>().useGravity = true;
                 Vector3 vec = transform.GetChild(i).position;
                 vec.y -= 0.5f;
                 transform.GetChild(i).position = vec;
                 other.gameObject.AddComponent<FixedJoint>().connectedBody = transform.GetChild(i).GetComponent<Rigidbody>();
                 transform.GetChild(i).parent = other.gameObject.transform;
-                Debug.Log(i);
             }
             foreach (FixedJoint b in GetComponents<FixedJoint>())
                 b.connectedBody = null;

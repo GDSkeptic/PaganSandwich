@@ -20,7 +20,7 @@ public class Sling : MonoBehaviour
 
     bool IsIngredient(GameObject _obj)
     {
-        return _obj.tag == "Tomato" || _obj.tag == "Chicken" || _obj.tag == "Lettuce" || _obj.tag == "Steak";
+        return _obj.tag == "Tomato" || _obj.tag == "Cheese" || _obj.tag == "Pikkle" || _obj.tag == "Steak";
     }
 
     // Update is called once per frame

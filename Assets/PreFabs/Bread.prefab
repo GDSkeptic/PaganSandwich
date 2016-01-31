@@ -45,10 +45,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 460958}
   - 54: {fileID: 5490486}
-  - 114: {fileID: 11425696}
+  - 114: {fileID: 11438546}
   m_Layer: 0
   m_Name: Bread
-  m_TagString: Untagged
+  m_TagString: Bread
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,7 +198,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 19.936838, y: 7.214659, z: 19.931862}
   m_Center: {x: -0.069293976, y: -3.6073391, z: 0.00000047683716}
---- !u!114 &11425696
+--- !u!114 &11438546
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -239,6 +239,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Constraints
       value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Bread
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

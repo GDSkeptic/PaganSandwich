@@ -5,14 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tomato
-  - Chicken
-  - Lettuce
-  - Steak
+  - Cheese
   - Sling
   - Stopper
   - Container
   - Bread
   - ConveryorBelt
+  - Enemy
+  - Pikkle
+  - Steak
+  - Container
   layers:
   - Default
   - TransparentFX
