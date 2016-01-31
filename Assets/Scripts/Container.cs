@@ -55,6 +55,7 @@ public class Container : MonoBehaviour
             for (int i = transform.childCount-1; i >=0; i--)
             {
                 transform.GetChild(i).gameObject.GetComponent<Rigidbody>().useGravity = false;
+                transform.GetChild(i).gameObject.GetComponent<Rigidbody>().mass = 0;
                 Vector3 vec = transform.GetChild(i).position;
                 vec.y = other.gameObject.transform.GetChild(1).position.y + 0.1f;
                 vec.x = other.gameObject.transform.GetChild(1).position.x - 0.1f;
@@ -66,7 +67,7 @@ public class Container : MonoBehaviour
             }
             Vector3 tempVelocity = other.gameObject.GetComponent<Rigidbody>().velocity;
             tempVelocity.x = tempVelocity.y= 0;
-            tempVelocity.z = 5;
+            tempVelocity.z = Camera.main.GetComponent<GlobalGameScript>().Game_Speed ;
             other.gameObject.GetComponent<Rigidbody>().velocity = tempVelocity;
             for (int i = 2; i < other.gameObject.transform.childCount; i++)
             {

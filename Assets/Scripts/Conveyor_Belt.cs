@@ -13,6 +13,7 @@ public class Conveyor_Belt : MonoBehaviour {
 	void Start () {
 	rigid_body  = GetComponent<Rigidbody>();
         Variable_Speed = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GlobalGameScript>().Game_Speed;
+        GetComponent<AudioSource>().Play();
     }
 	
     void FixedUpdate()

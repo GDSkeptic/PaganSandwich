@@ -5,7 +5,8 @@ public class Pouch : MonoBehaviour
 {
     public Ray ray;
     public Vector3 initialPosition;
-
+    [SerializeField]
+    AudioClip[] audio;
     public void Reset()
     {
         GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -23,6 +24,9 @@ public class Pouch : MonoBehaviour
                 {
                     SlingShotParent.obj = null;
                 }
+                else
+                    GetComponent<AudioSource>().PlayOneShot(audio[Random.Range(0, audio.Length)]);
+
             }
         }
         else if (Input.GetButtonUp("Fire1"))

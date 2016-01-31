@@ -15,6 +15,7 @@ GameObject:
   - 145: {fileID: 14566350}
   - 145: {fileID: 14573930}
   - 114: {fileID: 11438276}
+  - 82: {fileID: 8235160}
   m_Layer: 9
   m_Name: Pouch
   m_TagString: Sling
@@ -35,6 +36,7 @@ GameObject:
   - 23: {fileID: 2369034}
   - 114: {fileID: 11491446}
   - 65: {fileID: 6586760}
+  - 82: {fileID: 8265076}
   m_Layer: 12
   m_Name: IngredientPlate
   m_TagString: Untagged
@@ -1186,6 +1188,154 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 80, y: 10, z: 170}
   m_Center: {x: -0.000121593475, y: 1.0857687, z: -0.0000019073486}
+--- !u!82 &8235160
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102678}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!82 &8265076
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106362}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &9572258
 Animator:
   serializedVersion: 3
@@ -1241,6 +1391,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPosition: {x: 0.5, y: 0.92, z: 0}
+  audio:
+  - {fileID: 8300000, guid: d981bb6275ebb204dbeebaa1d83fb148, type: 3}
+  - {fileID: 8300000, guid: 62a112b3954aed44ea944ecac12804b3, type: 3}
+  - {fileID: 8300000, guid: 9bda6221fd0f80c4499cf895579007ac, type: 3}
 --- !u!114 &11447324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1272,6 +1426,32 @@ MonoBehaviour:
   cheese: {fileID: 106366, guid: 53b44419d6718504581bc876c2276d39, type: 2}
   steak: {fileID: 163498, guid: 41a85467282f37b488a209336fd41f09, type: 2}
   pikkle: {fileID: 166866, guid: 1426a42509dcc8e4c9b51ccc3c05bb83, type: 2}
+  pikkleAudio:
+  - {fileID: 8300000, guid: 7541488b72468407f943e7baa0130e3e, type: 3}
+  - {fileID: 8300000, guid: 851a390b167d1424b880e695a0691524, type: 3}
+  - {fileID: 8300000, guid: 22c0b397d54874394adc8365be0bd76e, type: 3}
+  tomatoAudio:
+  - {fileID: 8300000, guid: 4d1a3a6e7d5839a49b2c4a750fd3402e, type: 3}
+  - {fileID: 8300000, guid: 7cdc5a22b60399e45aba44491f3db433, type: 3}
+  - {fileID: 8300000, guid: a9b88bed86fa9be44a19b437e3bed648, type: 3}
+  cheeseAudio:
+  - {fileID: 8300000, guid: 8431e99a00c33df4d9ee2df1509bcbdf, type: 3}
+  - {fileID: 8300000, guid: 823eccaa4ce8b8a489999a4ce98a8d3c, type: 3}
+  - {fileID: 8300000, guid: 5e373365a2db79f4b930302ee2b0b65c, type: 3}
+  steakAudio:
+  - {fileID: 8300000, guid: 85cf1b3c7b8014cbca7672e98a7ec2f1, type: 3}
+  - {fileID: 8300000, guid: d88cb91a8e2f0480faf1c19b9e854c0f, type: 3}
+  - {fileID: 8300000, guid: 23507bc25f60048948f55cdb9262c927, type: 3}
+  foodContainerAudio:
+  - {fileID: 8300000, guid: 692ee7198ea6b4771b010e12a7ce9151, type: 3}
+  - {fileID: 8300000, guid: d08cef44864c04b31936ded7526e6449, type: 3}
+  - {fileID: 8300000, guid: 6d4508d99df0d4f518ada2441260bd42, type: 3}
+  - {fileID: 8300000, guid: 0861dd914f0cc4a0cb0de478d3f258ea, type: 3}
+  - {fileID: 8300000, guid: 2311dec77a1a943f095d31d425c1e164, type: 3}
+  containerShotAudio:
+  - {fileID: 8300000, guid: 829f8210c3c1512428b99cec995b1e31, type: 3}
+  - {fileID: 8300000, guid: abeeaa7ee58890e4fabdde62da31ba44, type: 3}
+  - {fileID: 8300000, guid: 60562b96800d69645898267bd6d187fd, type: 3}
 --- !u!114 &11496224
 MonoBehaviour:
   m_ObjectHideFlags: 1
