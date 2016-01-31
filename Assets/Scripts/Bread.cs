@@ -31,7 +31,7 @@ public class Bread : MonoBehaviour {
 
     void OnTriggerEnter(Collider _trigger)
     {
-        if(_trigger.tag == "Furnace")
+        if (_trigger.tag == "Furnace") 
             Destroy(gameObject);
     }
 }
