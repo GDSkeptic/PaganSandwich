@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour {
     {
         ExitMainMenu();
         ScoreUpdate.ShowMenuOnStartup = false;
-        SceneManager.LoadScene("Main");
         Music[0].volume = 0;
         SwitchClip(1);
     }
