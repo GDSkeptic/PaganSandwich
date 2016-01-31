@@ -9,10 +9,8 @@ TagManager:
   - Lettuce
   - Steak
   - Sling
-  - Light_Orange
-  - Light_Red
-  - Light_Yellow
-  - Enemy
+  - Stopper
+  - Container
   layers:
   - Default
   - TransparentFX
@@ -23,10 +21,10 @@ TagManager:
   - 
   - 
   - Ingredient
-  - 
-  - 
-  - 
-  - 
+  - Sling
+  - SlingContraints
+  - Container
+  - Tray
   - 
   - 
   - 

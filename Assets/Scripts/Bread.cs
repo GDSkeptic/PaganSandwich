@@ -6,6 +6,7 @@ public class Bread : MonoBehaviour {
     public List<string> RequestedIngredients;
 
     public float BreadHeight = 1;
+    public float TimeToLive = 30.0f;
 
     [SerializeField]
     float CurrentSandwichHeight = 1;
@@ -16,10 +17,17 @@ public class Bread : MonoBehaviour {
         CurrentSandwichHeight = BreadHeight;
     }
 
+    void Update()
+    {
+        TimeToLive -= Time.deltaTime;
+        if (TimeToLive < 0)
+            Destroy(gameObject);
+    }
+
     void OnCollisionEnter(Collision _collision)
     {
         GameObject other = _collision.gameObject;
-        if(other.tag == "Tomatoe" || other.tag == "Lettuce" || other.tag == "Steak" || other.tag == "Chicken")
+        if(other.tag == "Tomato" || other.tag == "Lettuce" || other.tag == "Steak" || other.tag == "Chicken")
         {
             other.GetComponent<Rigidbody>().velocity = Vector3.zero;
             other.transform.rotation = Quaternion.Euler(0, 0, 0);
