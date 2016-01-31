@@ -39,8 +39,8 @@ public class FurnaceCheck : MonoBehaviour {
             {
                 OnPunchSandwich();
                 //reseting the match streak to 0 and incrementing the number of misses.
-                ScoreUpdate.MatchStreak = 0;
-                ScoreUpdate.MissNum++;
+                //ScoreUpdate.MatchStreak = 0;
+                //ScoreUpdate.MissNum++;
             }
 
         }
@@ -64,16 +64,16 @@ public class FurnaceCheck : MonoBehaviour {
             {
                 OnPunchSandwich();
                 //reseting the match streak to 0 and incrementing the number of misses.
-                ScoreUpdate.MatchStreak = 0;
-                ScoreUpdate.MissNum++;
+                //ScoreUpdate.MatchStreak = 0;
+                //ScoreUpdate.MissNum++;
             StartCoroutine(Eject());
             ObjectToLaunch = _other.gameObject.transform.parent.gameObject;
             }
             else
             {
-                // if the ingredients match the match streak is incremented and the score is updated.
-                ScoreUpdate.MatchStreak++;
-                ScoreUpdate.UpdateScore();
+                //// if the ingredients match the match streak is incremented and the score is updated.
+                //ScoreUpdate.MatchStreak++;
+                //ScoreUpdate.UpdateScore();
             }
     }
 
