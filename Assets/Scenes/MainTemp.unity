@@ -542,7 +542,7 @@ Transform:
   m_GameObject: {fileID: 868002627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.01, z: 0}
-  m_LocalScale: {x: 1.4379039, y: 0.001, z: 90.76}
+  m_LocalScale: {x: 2, y: 0.001, z: 90.76}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -733,7 +733,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: dbbc8d1200db0ad44863851c9f31c0d3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.0850145
+      value: 0.1205892
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: dbbc8d1200db0ad44863851c9f31c0d3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -755,6 +755,14 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1cee73eb7881cb543800c4ee46b7b827, type: 2}
+    - target: {fileID: 400006, guid: dbbc8d1200db0ad44863851c9f31c0d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.05610981
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dbbc8d1200db0ad44863851c9f31c0d3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.112894125
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbbc8d1200db0ad44863851c9f31c0d3, type: 3}
   m_IsPrefabParent: 0
@@ -908,10 +916,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8e0ce117bf97c4ca449b3e78638e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouse_Position: {x: 0, y: 0, z: 0}
-  target: {fileID: 1283547307}
-  objectPosition: {x: 0, y: 0, z: 0}
-  angle: 0
 --- !u!4 &1283547307
 Transform:
   m_ObjectHideFlags: 0
@@ -1085,7 +1089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Game_Speed: 1
-  Bread: {fileID: 195024, guid: 814febcc89cc89747ae7bccef28c1e8b, type: 2}
+  Bread: {fileID: 171078, guid: 8ec39d7fc7bb7ed438b39eda4324656f, type: 2}
 --- !u!1001 &1672982883
 Prefab:
   m_ObjectHideFlags: 0

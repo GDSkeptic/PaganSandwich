@@ -11,7 +11,7 @@ GameObject:
   - 198: {fileID: 19859392}
   - 199: {fileID: 19992664}
   m_Layer: 0
-  m_Name: FlameSpoutFull
+  m_Name: FlameSpoutTemp
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
