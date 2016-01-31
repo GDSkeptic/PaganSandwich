@@ -27,8 +27,22 @@ public class Pusher_Plate_Script : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Vector3 temp = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>().position;
-        other.transform.parent.GetComponent<Transform>().position = Vector3.MoveTowards(other.transform.parent.GetComponent<Transform>().position, temp, 10);
 
+        if (other.tag == "Bread")
+        {
+            Vector3 temp = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>().position;
+            other.transform.parent.GetComponent<Transform>().position = Vector3.MoveTowards(other.transform.parent.GetComponent<Transform>().position, temp, 10);
+
+        }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+
+        if (other.gameObject.tag == "Bread")
+        {
+            Vector3 temp = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>().position;
+            other.gameObject.transform.parent.GetComponent<Transform>().position = Vector3.MoveTowards(other.gameObject.transform.parent.GetComponent<Transform>().position, temp, 10);
+
+        }
     }
 }
