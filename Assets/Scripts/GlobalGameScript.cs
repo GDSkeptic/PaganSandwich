@@ -7,10 +7,14 @@ public class GlobalGameScript : MonoBehaviour {
     float Spawn_Bread_Timer = 0.0f;
     float Threshold = 5.0f;
     public GameObject Bread;
+    
+
 	// Use this for initialization
 	void Start () {
+
+        
         //Bread = GameObject.FindGameObjectWithTag("Bread");
-	}
+    }
 	
     void FixedUpdate()
     {
@@ -27,4 +31,6 @@ public class GlobalGameScript : MonoBehaviour {
         }
 
 	}
+
+  
 }

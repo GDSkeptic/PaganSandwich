@@ -4,8 +4,10 @@ using System.Collections;
 public class FurnaceCheck : MonoBehaviour {
 
     public delegate void PunchSandwich();
-
+    
     public event PunchSandwich OnPunchSandwich;
+
+   
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +21,11 @@ public class FurnaceCheck : MonoBehaviour {
 
     void OnTriggerEnter(Collider _other)
     {
+        // Streak variable is updated when bread is checked for ingredients. 
+        // If good streak goes up.
+        // If bad streak is reset.
+        // Streak is then sent to comboupdate in the score update script.
+
         GameObject ObjectToTest = _other.gameObject;
         Bread bread = ObjectToTest.GetComponent<Bread>();
         Ingredient[] stuff = ObjectToTest.GetComponentsInChildren<Ingredient>();
@@ -26,7 +33,13 @@ public class FurnaceCheck : MonoBehaviour {
         {
             // bad sandwich!!!
             if (OnPunchSandwich != null)
+            {
                 OnPunchSandwich();
+                //reseting the match streak to 0 and incrementing the number of misses.
+                ScoreUpdate.MatchStreak = 0;
+                ScoreUpdate.MissNum++;
+            }
+
         }
         foreach(Ingredient i in stuff)
         {
@@ -36,6 +49,10 @@ public class FurnaceCheck : MonoBehaviour {
                 if (i.tag == bread.RequestedIngredients[s])
                 {
                     found = true;
+                    // if the ingredients match the match streak is incremented and the score is updated.
+                    ScoreUpdate.MatchStreak++;
+                    ScoreUpdate.UpdateScore();
+
                     bread.RequestedIngredients.RemoveAt(s);
                     break;
                 }
@@ -43,8 +60,12 @@ public class FurnaceCheck : MonoBehaviour {
             if (!found && OnPunchSandwich != null)
             {
                 OnPunchSandwich();
+                //reseting the match streak to 0 and incrementing the number of misses.
+                ScoreUpdate.MatchStreak = 0;
+                ScoreUpdate.MissNum++;
                 break;
             }
+
         }
     }
 
