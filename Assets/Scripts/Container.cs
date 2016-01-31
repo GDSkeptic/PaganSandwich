@@ -65,16 +65,15 @@ public class Container : MonoBehaviour
                 other.gameObject.AddComponent<FixedJoint>().connectedBody = transform.GetChild(i).GetComponent<Rigidbody>();
                 transform.GetChild(i).parent = other.gameObject.transform;
             }
+           Destroy(gameObject);
             Vector3 tempVelocity = other.gameObject.GetComponent<Rigidbody>().velocity;
             tempVelocity.x = tempVelocity.y= 0;
-            tempVelocity.z = Camera.main.GetComponent<GlobalGameScript>().Game_Speed ;
+            tempVelocity.z = Camera.main.GetComponent<GlobalGameScript>().Game_Speed * 15f;
             other.gameObject.GetComponent<Rigidbody>().velocity = tempVelocity;
             for (int i = 2; i < other.gameObject.transform.childCount; i++)
             {
                 other.gameObject.transform.GetChild(i).GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-           Destroy(gameObject);
         }
     }
 }
