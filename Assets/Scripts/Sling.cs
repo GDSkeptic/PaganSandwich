@@ -3,16 +3,19 @@ using System.Collections;
 
 public class Sling : MonoBehaviour
 {
-
-    // Use this for initialization
+    GameObject currentContainer;
+    // Use this for initialization0
     public Ray ray;
-    public bool ingredientParent;//if there is a parent already created
+    int noOfIngredient;
     public GameObject container;//parent ingredient if any
+    public bool hasEmptyContainer;
     [SerializeField]
-    float upValue = 0.0f; //offset y position of the object when dragged on the slingshot
+    float upValue = 1.0f; //offset y position of the object when dragged on the slingshot
     void Start()
     {
-        ingredientParent = false;
+        currentContainer = Instantiate(container);
+        hasEmptyContainer = false;
+        noOfIngredient = 0;
     }
 
     bool IsIngredient(GameObject _obj)
@@ -42,7 +45,7 @@ public class Sling : MonoBehaviour
                 SlingShotParent.obj = null;
             }
         }
-        if (SlingShotParent.obj != null && IsIngredient(SlingShotParent.obj))
+        if (SlingShotParent.obj != null && IsIngredient(SlingShotParent.obj) && SlingShotParent.obj.GetComponent<Ingredient>().SpawnerBox)
         {
             float distance_to_screen = Camera.main.WorldToScreenPoint(SlingShotParent.obj.transform.position).z;
             Vector3 pos_move = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance_to_screen));
@@ -52,23 +55,31 @@ public class Sling : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (IsIngredient(other.gameObject) && other.gameObject.GetComponent<Ingredient>().SpawnerBox)
+        if (IsIngredient(other.gameObject) && other.gameObject.GetComponent<Ingredient>().SpawnerBox && noOfIngredient<3)
         {
+            noOfIngredient++;
+            hasEmptyContainer = false;
             SlingShotParent.obj = null;
-            // Destroy(other.gameObject);
-            //Debug.Log("ok");
-            //other.gameObject.transform.position = transform.position;
             Vector3 vec = transform.position;
             vec.y += upValue;
             upValue += 0.2f;
-            //other.gameObject.transform.position = vec;
-            //other.gameObject.transform.parent = transform;
-
             other.gameObject.GetComponent<Ingredient>().Reset();
             GameObject temp = (GameObject)Instantiate(other.gameObject, vec, Quaternion.identity);
             temp.GetComponent<Ingredient>().SpawnerBox = false;
-            temp.transform.parent = container.transform;
-            container.AddComponent<FixedJoint>().connectedBody = temp.GetComponent<Rigidbody>();
+            temp.transform.parent = currentContainer.transform;
+            currentContainer.AddComponent<FixedJoint>().connectedBody = temp.GetComponent<Rigidbody>();
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Container" && !hasEmptyContainer)
+        {
+            currentContainer.GetComponent<Container>().shot = true;
+            Destroy(currentContainer, 30.0f);
+            currentContainer = Instantiate(container);
+            hasEmptyContainer = true;
+            upValue = 1.0f;
+            noOfIngredient = 0;
         }
     }
 }
