@@ -6,13 +6,15 @@ public class FurnaceCheck : MonoBehaviour {
     public delegate void PunchSandwich();
     
     public event PunchSandwich OnPunchSandwich;
+    GameObject ObjectToLaunch;
+    Vector3 Cam;
 
-   
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+
+    // Use this for initialization
+    void Start () {
+        Cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>().position;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,9 +29,10 @@ public class FurnaceCheck : MonoBehaviour {
         // Streak is then sent to comboupdate in the score update script.
 
         GameObject ObjectToTest = _other.gameObject;
-        Bread bread = ObjectToTest.GetComponent<Bread>();
+        Bread bread = ObjectToTest.transform.parent.GetComponent<Bread>();
         Ingredient[] stuff = ObjectToTest.GetComponentsInChildren<Ingredient>();
-        if(bread.RequestedIngredients.Count != stuff.Length)
+
+        if (bread.RequestedIngredients.Count != stuff.Length)
         {
             // bad sandwich!!!
             if (OnPunchSandwich != null)
@@ -41,9 +44,10 @@ public class FurnaceCheck : MonoBehaviour {
             }
 
         }
-        foreach(Ingredient i in stuff)
+        bool found = false;
+
+        foreach (Ingredient i in stuff)
         {
-            bool found = false;
             for (int s = 0; s < bread.RequestedIngredients.Count; ++s)
             {
                 if (i.tag == bread.RequestedIngredients[s])
@@ -54,13 +58,16 @@ public class FurnaceCheck : MonoBehaviour {
                     break;
                 }
             }
+
+        }
             if (!found && OnPunchSandwich != null)
             {
                 OnPunchSandwich();
                 //reseting the match streak to 0 and incrementing the number of misses.
                 ScoreUpdate.MatchStreak = 0;
                 ScoreUpdate.MissNum++;
-                break;
+            StartCoroutine(Eject());
+            ObjectToLaunch = _other.gameObject.transform.parent.gameObject;
             }
             else
             {
@@ -68,8 +75,12 @@ public class FurnaceCheck : MonoBehaviour {
                 ScoreUpdate.MatchStreak++;
                 ScoreUpdate.UpdateScore();
             }
+    }
 
-        }
+    IEnumerator Eject()
+    {
+        yield return new WaitForSeconds(.25f);
+        ObjectToLaunch.GetComponent<Transform>().position = Vector3.MoveTowards(ObjectToLaunch.GetComponent<Transform>().position, Cam, 15);
     }
 
 }
