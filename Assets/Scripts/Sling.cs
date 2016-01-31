@@ -13,6 +13,7 @@ public class Sling : MonoBehaviour
     float upValue = 1.0f; //offset y position of the object when dragged on the slingshot
     [SerializeField]
     GameObject tomato, cheese, steak, pikkle;
+    public AudioClip[] pikkleAudio, tomatoAudio, cheeseAudio, steakAudio, foodContainerAudio,containerShotAudio;
     void Start()
     {
         currentContainer = Instantiate(container);
@@ -37,6 +38,9 @@ public class Sling : MonoBehaviour
                 {
                     SlingShotParent.obj = null;
                 }
+                else
+                    GetComponent<AudioSource>().PlayOneShot(foodContainerAudio[Random.Range(0, foodContainerAudio.Length)]);
+
             }
         }
         else if (Input.GetButtonUp("Fire1"))
@@ -70,18 +74,25 @@ public class Sling : MonoBehaviour
             if (other.gameObject.tag == "Tomato") 
             {
                 temp = (GameObject)Instantiate(tomato, vec, Quaternion.identity);
+                GetComponent<AudioSource>().PlayOneShot(tomatoAudio[Random.Range(0, tomatoAudio.Length)]);
             }
             else if (other.gameObject.tag == "Cheese")
             {
                 temp = (GameObject)Instantiate(cheese, vec, Quaternion.identity);
+                GetComponent<AudioSource>().PlayOneShot(cheeseAudio[Random.Range(0, cheeseAudio.Length)]);
+
             }
             else if (other.gameObject.tag == "Steak")
             {
                 temp = (GameObject)Instantiate(steak, vec, Quaternion.identity);
+                GetComponent<AudioSource>().PlayOneShot(steakAudio[Random.Range(0, steakAudio.Length)]);
+
             }
             else if (other.gameObject.tag == "Pikkle")
             {
                 temp = (GameObject)Instantiate(pikkle, vec, Quaternion.identity);
+                GetComponent<AudioSource>().PlayOneShot(pikkleAudio[Random.Range(0, pikkleAudio.Length)]);
+
             }
             temp.GetComponent<Ingredient>().SpawnerBox = false;
             temp.transform.parent = currentContainer.transform;
@@ -92,6 +103,7 @@ public class Sling : MonoBehaviour
     {
         if (other.gameObject.tag == "Container" && !hasEmptyContainer)
         {
+            GetComponent<AudioSource>().PlayOneShot(containerShotAudio[Random.Range(0, containerShotAudio.Length)]);
             currentContainer.GetComponent<Container>().shot = true;
             currentContainer = Instantiate(container);
             hasEmptyContainer = true;
