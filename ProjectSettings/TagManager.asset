@@ -9,6 +9,10 @@ TagManager:
   - Lettuce
   - Steak
   - Sling
+  - Light_Orange
+  - Light_Red
+  - Light_Yellow
+  - Enemy
   layers:
   - Default
   - TransparentFX
