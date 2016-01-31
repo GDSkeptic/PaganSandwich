@@ -14,6 +14,9 @@ public class Pouch : MonoBehaviour
 
     void Update()
     {
+        GetComponent<LineRenderer>().SetPosition(1, transform.position + new Vector3(0, 0, -.25f));
+
+
         if (Input.GetButtonDown("Fire1"))
         {
             if (SlingShotParent.obj == null)
