@@ -49,9 +49,6 @@ public class FurnaceCheck : MonoBehaviour {
                 if (i.tag == bread.RequestedIngredients[s])
                 {
                     found = true;
-                    // if the ingredients match the match streak is incremented and the score is updated.
-                    ScoreUpdate.MatchStreak++;
-                    ScoreUpdate.UpdateScore();
 
                     bread.RequestedIngredients.RemoveAt(s);
                     break;
@@ -64,6 +61,12 @@ public class FurnaceCheck : MonoBehaviour {
                 ScoreUpdate.MatchStreak = 0;
                 ScoreUpdate.MissNum++;
                 break;
+            }
+            else
+            {
+                // if the ingredients match the match streak is incremented and the score is updated.
+                ScoreUpdate.MatchStreak++;
+                ScoreUpdate.UpdateScore();
             }
 
         }

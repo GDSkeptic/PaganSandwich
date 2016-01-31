@@ -13,6 +13,10 @@ TagManager:
   - Container
   - Bread
   - ConveryorBelt
+  - Enemy
+  - Light_Yellow
+  - Light_Orange
+  - Light_Red
   layers:
   - Default
   - TransparentFX
@@ -27,7 +31,7 @@ TagManager:
   - SlingContraints
   - Container
   - Tray
-  - 
+  - Bread
   - 
   - 
   - 
