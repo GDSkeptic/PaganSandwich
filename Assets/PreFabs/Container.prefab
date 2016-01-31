@@ -1,44 +1,44 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &195024
+--- !u!1 &160720
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 418746}
-  - 33: {fileID: 3335086}
-  - 23: {fileID: 2371464}
-  - 54: {fileID: 5459384}
-  - 65: {fileID: 6596474}
-  - 114: {fileID: 11459384}
-  m_Layer: 0
-  m_Name: Bread
-  m_TagString: Bread
+  - 4: {fileID: 469150}
+  - 33: {fileID: 3307188}
+  - 65: {fileID: 6555010}
+  - 23: {fileID: 2327644}
+  - 54: {fileID: 5418692}
+  - 114: {fileID: 11499656}
+  m_Layer: 11
+  m_Name: Container
+  m_TagString: Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &418746
+--- !u!4 &469150
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195024}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 1.5, z: -20}
-  m_LocalScale: {x: 1, y: 1, z: 0.6863109}
+  m_GameObject: {fileID: 160720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.5, y: 2, z: 2.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2371464
+--- !u!23 &2327644
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195024}
-  m_Enabled: 1
+  m_GameObject: {fileID: 160720}
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -58,19 +58,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3335086
+--- !u!33 &3307188
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195024}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5459384
+  m_GameObject: {fileID: 160720}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5418692
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195024}
+  m_GameObject: {fileID: 160720}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -78,35 +78,33 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 2
-  m_CollisionDetection: 0
---- !u!65 &6596474
+  m_Constraints: 112
+  m_CollisionDetection: 1
+--- !u!65 &6555010
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195024}
-  m_Material: {fileID: 13400000, guid: ad7243b1c9292b040b886637f16d8014, type: 2}
+  m_GameObject: {fileID: 160720}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 2, z: 0.8858311}
-  m_Center: {x: 0.000000059604645, y: 0, z: 0.00820504}
---- !u!114 &11459384
+  m_Size: {x: 1, y: 0.5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11499656
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195024}
+  m_GameObject: {fileID: 160720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e44ff0ad721ccc498168b6048e7a2c6, type: 3}
+  m_Script: {fileID: 11500000, guid: b27669f653995904fa270c0e9b619b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RequestedIngredients: []
-  BreadHeight: 1
-  TimeToLive: 30
-  CurrentSandwichHeight: 1
+  shot: 0
+  destroyTime: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -115,35 +113,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.z
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: ad7243b1c9292b040b886637f16d8014,
-        type: 2}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_TagString
-      value: Bread
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Constraints
-      value: 2
+      propertyPath: destroyTime
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 195024}
+  m_RootGameObject: {fileID: 160720}
   m_IsPrefabParent: 1

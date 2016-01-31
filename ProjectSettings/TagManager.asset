@@ -11,6 +11,8 @@ TagManager:
   - Sling
   - Stopper
   - Container
+  - Bread
+  - ConveryorBelt
   layers:
   - Default
   - TransparentFX
