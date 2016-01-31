@@ -15,6 +15,10 @@ TagManager:
   - Pikkle
   - Steak
   - Container
+
+  - Light_Yellow
+  - Light_Orange
+  - Light_Red
   layers:
   - Default
   - TransparentFX
@@ -29,7 +33,7 @@ TagManager:
   - SlingContraints
   - Container
   - Tray
-  - 
+  - Bread
   - 
   - 
   - 
