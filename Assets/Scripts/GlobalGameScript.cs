@@ -18,7 +18,7 @@ public class GlobalGameScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if (LevelTimes == null)
+        if (LevelTimes == null || LevelTimes.Length < 8)
         {
             LevelTimes = new float[8];
             LevelSpeeds = new float[8];

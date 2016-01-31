@@ -70,9 +70,12 @@ public class Container : MonoBehaviour
             tempVelocity.x = tempVelocity.y= 0;
             tempVelocity.z = Camera.main.GetComponent<GlobalGameScript>().Game_Speed * 15f;
             other.gameObject.GetComponent<Rigidbody>().velocity = tempVelocity;
-            for (int i = 2; i < other.gameObject.transform.childCount; i++)
+            for (int i = 0; i < other.gameObject.transform.childCount; i++)
             {
-                other.gameObject.transform.GetChild(i).GetComponent<Rigidbody>().velocity = Vector3.zero;
+                if (other.gameObject.transform.GetChild(i).GetComponent<Rigidbody>())
+                {
+                    other.gameObject.transform.GetChild(i).GetComponent<Rigidbody>().velocity = Vector3.zero;
+                }
             }
         }
     }

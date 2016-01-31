@@ -23,7 +23,6 @@ public class Bread : MonoBehaviour {
     GameObject SecondPlace;
 
     public float BreadHeight = 1;
-    public float TimeToLive = 30.0f;
 
     [SerializeField]
     float CurrentSandwichHeight = 1;
@@ -98,13 +97,12 @@ public class Bread : MonoBehaviour {
 
     void Update()
     {
-        TimeToLive -= Time.deltaTime;
-        if (TimeToLive < 0)
-            Destroy(gameObject);
+        
     }
 
     void OnCollisionEnter(Collision _collision)
     {
+
         GameObject other = _collision.gameObject;
         if(other.tag == "Tomato" || other.tag == "Cheese" || other.tag == "Steak" || other.tag == "Pikkle")
         {
@@ -113,6 +111,10 @@ public class Bread : MonoBehaviour {
             other.transform.position = transform.position + Vector3.up * CurrentSandwichHeight;
             CurrentSandwichHeight += other.GetComponent<Ingredient>().height;
             other.transform.parent = transform;
+        }
+        else if (other.tag != "ConveryorBelt")
+        {
+            Destroy(gameObject, 3);
         }
     }
 
