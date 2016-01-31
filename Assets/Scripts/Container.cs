@@ -27,9 +27,10 @@ public class Container : MonoBehaviour
             List<GameObject> a = new List<GameObject>();
             for (int i = size - 1; i >= 0; i--)
             {
-                Destroy(transform.GetChild(i).gameObject, 15.0f);
+                Destroy(transform.GetChild(i).gameObject,2.0f);
                 a.Add(transform.GetChild(i).gameObject);
                 transform.GetChild(i).gameObject.GetComponent<Rigidbody>().useGravity = true;
+                transform.GetChild(i).gameObject.GetComponent<BoxCollider>().enabled = false;
                 transform.GetChild(i).parent = null;
             }
             foreach (FixedJoint b in GetComponents<FixedJoint>())
@@ -42,21 +43,35 @@ public class Container : MonoBehaviour
                 vec = Quaternion.Euler(x, 0, z) * vec;
                 a[i].GetComponent<Rigidbody>().AddForce(vec * 500);
             }
+            Destroy(gameObject);
+
         }
         else if(other.gameObject.tag == "Bread" && shot)
         {
+            foreach (FixedJoint b in GetComponents<FixedJoint>())
+                b.connectedBody = null;
             shot = false;
+            float z = -0.8f;
             for (int i = transform.childCount-1; i >=0; i--)
             {
+                transform.GetChild(i).gameObject.GetComponent<Rigidbody>().useGravity = false;
                 Vector3 vec = transform.GetChild(i).position;
-                vec.y -= 0.5f;
+                vec.y = other.gameObject.transform.GetChild(1).position.y + 0.1f;
+                vec.x = other.gameObject.transform.GetChild(1).position.x - 0.1f;
+                vec.z = other.gameObject.transform.GetChild(1).position.z + z;
+                z += 0.8f;
                 transform.GetChild(i).position = vec;
                 other.gameObject.AddComponent<FixedJoint>().connectedBody = transform.GetChild(i).GetComponent<Rigidbody>();
                 transform.GetChild(i).parent = other.gameObject.transform;
             }
-            foreach (FixedJoint b in GetComponents<FixedJoint>())
-                b.connectedBody = null;
-            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            Vector3 tempVelocity = other.gameObject.GetComponent<Rigidbody>().velocity;
+            tempVelocity.x = tempVelocity.y= 0;
+            tempVelocity.z = 5;
+            other.gameObject.GetComponent<Rigidbody>().velocity = tempVelocity;
+            for (int i = 2; i < other.gameObject.transform.childCount; i++)
+            {
+                other.gameObject.transform.GetChild(i).GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
             GetComponent<Rigidbody>().velocity = Vector3.zero;
            Destroy(gameObject);
         }

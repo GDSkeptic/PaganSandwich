@@ -11,6 +11,8 @@ public class Sling : MonoBehaviour
     public bool hasEmptyContainer;
     [SerializeField]
     float upValue = 1.0f; //offset y position of the object when dragged on the slingshot
+    [SerializeField]
+    GameObject tomato, cheese, steak, pikkle;
     void Start()
     {
         currentContainer = Instantiate(container);
@@ -64,7 +66,23 @@ public class Sling : MonoBehaviour
             vec.y += upValue;
             upValue += 0.2f;
             other.gameObject.GetComponent<Ingredient>().Reset();
-            GameObject temp = (GameObject)Instantiate(other.gameObject, vec, Quaternion.identity);
+            GameObject temp=null;
+            if (other.gameObject.tag == "Tomato") 
+            {
+                temp = (GameObject)Instantiate(tomato, vec, Quaternion.identity);
+            }
+            else if (other.gameObject.tag == "Cheese")
+            {
+                temp = (GameObject)Instantiate(cheese, vec, Quaternion.identity);
+            }
+            else if (other.gameObject.tag == "Steak")
+            {
+                temp = (GameObject)Instantiate(steak, vec, Quaternion.identity);
+            }
+            else if (other.gameObject.tag == "Pikkle")
+            {
+                temp = (GameObject)Instantiate(pikkle, vec, Quaternion.identity);
+            }
             temp.GetComponent<Ingredient>().SpawnerBox = false;
             temp.transform.parent = currentContainer.transform;
             currentContainer.AddComponent<FixedJoint>().connectedBody = temp.GetComponent<Rigidbody>();
@@ -75,7 +93,6 @@ public class Sling : MonoBehaviour
         if (other.gameObject.tag == "Container" && !hasEmptyContainer)
         {
             currentContainer.GetComponent<Container>().shot = true;
-            Destroy(currentContainer, 30.0f);
             currentContainer = Instantiate(container);
             hasEmptyContainer = true;
             upValue = 1.0f;
